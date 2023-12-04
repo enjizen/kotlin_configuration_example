@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: configuration
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/enjizen/application_config_example.git
+          default-label: master
+          clone-on-start: true
+          search-paths: dev
+      enabled: false
+
+server:
+  servlet:
+    contextPath: /configuration
+  port: 8006
+  #eureka.client.service-url.defaultZone=http://localhost:9001/eureka
+
+
+management:
+  security:
+    enabled: false
+  #To remove WAR - Could not locate PropertySource: None of labels [] found
+health:
+  config:
+    enabled: false
